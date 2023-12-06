@@ -25,7 +25,6 @@ movieSearchForm.addEventListener("click", function (event) {
     fetch(requestStr)
       .then((response) => response.json())
       .then((data) => {
-        explore.classList.add("hidden");
         const moviesArr = data.Search;
         moviesArr.forEach((movie) => {
           const requestMovieStr = `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${apiKey}`;
@@ -33,9 +32,14 @@ movieSearchForm.addEventListener("click", function (event) {
           fetch(requestMovieStr)
             .then((response) => response.json())
             .then((movieData) => {
+              explore.classList.add("hidden");
               movieList.innerHTML += generateMovieHTML(movieData, false);
             });
         });
+      })
+      .catch((err) => {
+        explore.innerHTML =
+          "Unable to find what you’re looking for. Please try another search.";
       });
   }
 });
