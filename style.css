@@ -103,12 +103,12 @@ body {
 }
 
 .main__content {
-  position: relative;
   min-height: 100%;
   padding: 40px 0;
 }
 
-.explore {
+.explore,
+.explore__watchlist {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -185,20 +185,24 @@ body {
 .movie__info {
   display: flex;
   gap: 20px;
+  align-items: center;
   color: #111827;
   font-size: 14px;
   margin-bottom: 20px;
 }
 
 .movie__btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   font-size: 14px;
   border: none;
   background-color: transparent;
+  padding-left: 20px;
+  background: left / contain no-repeat url(images/add-movie.svg);
   margin-left: auto;
   cursor: pointer;
+}
+
+.movie__btn_added {
+  background: left / contain no-repeat url(images/remove-movie.svg);
 }
 
 .movie__actors {
